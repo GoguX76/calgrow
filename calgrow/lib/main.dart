@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           Positioned(
             top: 15,
-            left: MediaQuery.of(context).size.width / 2 - 75,
+            left: 120,
             child: Image.asset(
               'assets/CalGrow-Icono.png',
               width: 150,
@@ -92,12 +92,21 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
 
-          Center(
-            child: ElevatedButton(
+          Positioned(
+            bottom: 120,
+            left: 112,
+            child: SizedBox(
+              width: 170,
+              height: 50,
+              child: ElevatedButton(
               onPressed: () {
                 print('Iniciaste Sesion!');
               },
-              child: const Text('Iniciar Sesion'),
+              child: const Text('Iniciar Sesion',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+              )),
+            ),
             ),
           ),
         ],
