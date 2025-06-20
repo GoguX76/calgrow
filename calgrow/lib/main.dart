@@ -86,8 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: screenHeight * -0.02,
-            left: screenWidth * 0.33,
+            top: screenHeight * -0.16,
+            left: screenWidth * 0.27,
             child: Image.asset(
               'assets/CalGrow-Icono.png',
               width: screenWidth * 0.5,
@@ -108,8 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            bottom: screenHeight * 0.22,
-            left: screenWidth * 0.31,
+            bottom: screenHeight * 0.18,
+            left: screenWidth * 0.25,
             child: SizedBox(
               width: screenWidth * 0.5,
               height: screenHeight * 0.08,
@@ -135,8 +135,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment(0, -0.30),
             child: Container(
-              width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
+              width: screenWidth * 0.87,
+              height: screenHeight * 0.064,
               decoration: BoxDecoration(
                 color: Color(0xFF4b626e),
                 borderRadius: BorderRadius.circular(25),
@@ -145,10 +145,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Align(
-            alignment: Alignment(0, -0.10),
+            alignment: Alignment(0, -0.05),
             child: Container(
-              width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
+              width: screenWidth * 0.87,
+              height: screenHeight * 0.064,
               decoration: BoxDecoration(
                 color: Color(0xFF4b626e),
                 borderRadius: BorderRadius.circular(25),
@@ -157,8 +157,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: screenHeight * 0.23,
-            left: screenWidth * 0.43,
+            top: screenHeight * 0.08,
+            left: screenWidth * 0.36,
             child: Image.asset(
               'assets/CalGrow-Usuario-Icon.png',
               width: screenWidth * 0.3,
@@ -167,8 +167,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: screenHeight * 0.41,
-            left: screenWidth * 0.08,
+            top: screenHeight * 0.29,
+            left: screenWidth * 0.062,
             child: Image.asset(
               'assets/CalGrow-Email-Icon.png',
               width: screenWidth * 0.14,
@@ -177,8 +177,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: screenHeight * 0.53,
-            left: screenWidth * 0.08,
+            top: screenHeight * 0.407,
+            left: screenWidth * 0.062,
             child: Image.asset(
               'assets/CalGrow-Padlock-Icon.png',
               width: screenWidth * 0.14,
@@ -187,22 +187,35 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            bottom: screenHeight * 0.48,
-            right: screenWidth * 0.04,
-            child: Switch(
-              value: switchActivo,
-              onChanged: (bool switchCambio) {
-                setState(() {
-                  switchActivo = switchCambio;
-                });
-              },
-              activeTrackColor: Colors.indigoAccent,
+            bottom: screenHeight * 0.42,
+            right: screenWidth * 0.39,
+            child: Row(
+              children: [
+                Switch(
+                  value: switchActivo,
+                  onChanged: (bool switchCambio) {
+                    setState(() {
+                      switchActivo = switchCambio;
+                    });
+                  },
+                  activeTrackColor: Colors.indigoAccent,
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'Recordar contraseña',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
             ),
           ),
 
           Positioned(
-            top: screenHeight * 0.41,
-            left: screenWidth * 0.23,
+            top: screenHeight * 0.334,
+            left: screenWidth * 0.21,
             child: SizedBox(
               width: screenWidth * 0.7,
               height: screenHeight * 0.2,
@@ -227,8 +240,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: screenHeight * 0.53,
-            left: screenWidth * 0.23,
+            top: screenHeight * 0.451,
+            left: screenWidth * 0.21,
             child: SizedBox(
               width: screenWidth * 0.7,
               height: screenHeight * 0.2,
