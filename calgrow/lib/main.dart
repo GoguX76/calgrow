@@ -59,6 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool switchActivo = false;
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -84,20 +86,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: -15,
-            left: 125,
+            top: screenHeight * -0.02,
+            left: screenWidth * 0.33,
             child: Image.asset(
               'assets/CalGrow-Icono.png',
-              width: 180,
-              height: 180,
+              width: screenWidth * 0.5,
+              height: screenHeight * 0.5,
             ),
           ),
 
           Align(
             alignment: Alignment(0, 0.17),
             child: Container(
-              width: 370,
-              height: 520,
+              width: screenWidth * 0.9,
+              height: screenHeight * 0.6,
               decoration: BoxDecoration(
                 color: Color(0xFFD9D9D9),
                 borderRadius: BorderRadius.circular(19),
@@ -106,11 +108,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            bottom: 180,
-            left: 115,
+            bottom: screenHeight * 0.22,
+            left: screenWidth * 0.31,
             child: SizedBox(
-              width: 190,
-              height: 70,
+              width: screenWidth * 0.5,
+              height: screenHeight * 0.08,
               child: ElevatedButton(
                 onPressed: () {
                   print('Iniciaste Sesion!');
@@ -133,8 +135,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment(0, -0.30),
             child: Container(
-              width: 350,
-              height: 50,
+              width: screenWidth * 0.9,
+              height: screenHeight * 0.07,
               decoration: BoxDecoration(
                 color: Color(0xFF4b626e),
                 borderRadius: BorderRadius.circular(25),
@@ -145,8 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment(0, -0.10),
             child: Container(
-              width: 350,
-              height: 50,
+              width: screenWidth * 0.9,
+              height: screenHeight * 0.07,
               decoration: BoxDecoration(
                 color: Color(0xFF4b626e),
                 borderRadius: BorderRadius.circular(25),
@@ -155,38 +157,38 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: 170,
-            left: 155,
+            top: screenHeight * 0.23,
+            left: screenWidth * 0.43,
             child: Image.asset(
               'assets/CalGrow-Usuario-Icon.png',
-              width: 110,
-              height: 110,
+              width: screenWidth * 0.3,
+              height: screenHeight * 0.3,
             ),
           ),
 
           Positioned(
-            top: 302,
-            left: 30,
+            top: screenHeight * 0.41,
+            left: screenWidth * 0.08,
             child: Image.asset(
               'assets/CalGrow-Email-Icon.png',
-              width: 50,
-              height: 50,
+              width: screenWidth * 0.14,
+              height: screenHeight * 0.14,
             ),
           ),
 
           Positioned(
-            top: 390,
-            left: 30,
+            top: screenHeight * 0.53,
+            left: screenWidth * 0.08,
             child: Image.asset(
               'assets/CalGrow-Padlock-Icon.png',
-              width: 50,
-              height: 50,
+              width: screenWidth * 0.14,
+              height: screenHeight * 0.14,
             ),
           ),
 
           Positioned(
-            bottom: 415,
-            right: 320,
+            bottom: screenHeight * 0.48,
+            right: screenWidth * 0.04,
             child: Switch(
               value: switchActivo,
               onChanged: (bool switchCambio) {
@@ -199,11 +201,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: 303,
-            left: 85,
+            top: screenHeight * 0.41,
+            left: screenWidth * 0.23,
             child: SizedBox(
-              width: 270,
-              height: 150,
+              width: screenWidth * 0.7,
+              height: screenHeight * 0.2,
               child: TextField(
                 cursorColor: Colors.blue,
                 style: const TextStyle(
@@ -225,11 +227,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: 390,
-            left: 85,
+            top: screenHeight * 0.53,
+            left: screenWidth * 0.23,
             child: SizedBox(
-              width: 270,
-              height: 150,
+              width: screenWidth * 0.7,
+              height: screenHeight * 0.2,
               child: TextField(
                 cursorColor: Colors.blue,
                 obscureText: true,
