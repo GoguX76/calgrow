@@ -56,6 +56,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool switchActivo = false;
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -83,30 +84,170 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Positioned(
-            top: 15,
-            left: 120,
+            top: -15,
+            left: 125,
             child: Image.asset(
               'assets/CalGrow-Icono.png',
-              width: 150,
-              height: 150,
+              width: 180,
+              height: 180,
+            ),
+          ),
+
+          Align(
+            alignment: Alignment(0, 0.17),
+            child: Container(
+              width: 370,
+              height: 520,
+              decoration: BoxDecoration(
+                color: Color(0xFFD9D9D9),
+                borderRadius: BorderRadius.circular(19),
+              ),
             ),
           ),
 
           Positioned(
-            bottom: 120,
-            left: 112,
+            bottom: 180,
+            left: 115,
             child: SizedBox(
-              width: 170,
-              height: 50,
+              width: 190,
+              height: 70,
               child: ElevatedButton(
-              onPressed: () {
-                print('Iniciaste Sesion!');
-              },
-              child: const Text('Iniciar Sesion',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-              )),
+                onPressed: () {
+                  print('Iniciaste Sesion!');
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF4b626e),
+                ),
+                child: const Text(
+                  'Iniciar Sesión',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
+          ),
+
+          Align(
+            alignment: Alignment(0, -0.30),
+            child: Container(
+              width: 350,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color(0xFF4b626e),
+                borderRadius: BorderRadius.circular(25),
+              ),
+            ),
+          ),
+
+          Align(
+            alignment: Alignment(0, -0.10),
+            child: Container(
+              width: 350,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color(0xFF4b626e),
+                borderRadius: BorderRadius.circular(25),
+              ),
+            ),
+          ),
+
+          Positioned(
+            top: 170,
+            left: 155,
+            child: Image.asset(
+              'assets/CalGrow-Usuario-Icon.png',
+              width: 110,
+              height: 110,
+            ),
+          ),
+
+          Positioned(
+            top: 302,
+            left: 30,
+            child: Image.asset(
+              'assets/CalGrow-Email-Icon.png',
+              width: 50,
+              height: 50,
+            ),
+          ),
+
+          Positioned(
+            top: 390,
+            left: 30,
+            child: Image.asset(
+              'assets/CalGrow-Padlock-Icon.png',
+              width: 50,
+              height: 50,
+            ),
+          ),
+
+          Positioned(
+            bottom: 415,
+            right: 320,
+            child: Switch(
+              value: switchActivo,
+              onChanged: (bool switchCambio) {
+                setState(() {
+                  switchActivo = switchCambio;
+                });
+              },
+              activeTrackColor: Colors.indigoAccent,
+            ),
+          ),
+
+          Positioned(
+            top: 303,
+            left: 85,
+            child: SizedBox(
+              width: 270,
+              height: 150,
+              child: TextField(
+                cursorColor: Colors.blue,
+                style: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 14,
+                  color: Colors.white,
+                ),
+                decoration: InputDecoration(
+                  hintText: 'Ingrese su correo',
+                  hintStyle: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+          ),
+
+          Positioned(
+            top: 390,
+            left: 85,
+            child: SizedBox(
+              width: 270,
+              height: 150,
+              child: TextField(
+                cursorColor: Colors.blue,
+                obscureText: true,
+                style: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 14,
+                  color: Colors.white,
+                ),
+                decoration: InputDecoration(
+                  hintText: 'Ingrese su contraseña',
+                  hintStyle: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                  border: InputBorder.none,
+                ),
+              ),
             ),
           ),
         ],
