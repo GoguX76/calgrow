@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               left: screenW * 0.05,
               child: Container(
                 width: screenW * 0.9,
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.65,
                 decoration: BoxDecoration(
                   color: const Color(0xFFD9D9D9),
                   borderRadius: BorderRadius.circular(19),
