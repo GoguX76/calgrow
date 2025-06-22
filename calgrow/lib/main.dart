@@ -3,6 +3,7 @@ import 'register.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'recover_passwd.dart';
+import 'package:CalGrow/datosUsuario.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool switchActivo = false;
+  final TextEditingController emailIngresado = TextEditingController();
+  final TextEditingController passwdIngresado = TextEditingController();
+
+  @override
+  void dispose() {
+    emailIngresado.dispose();
+    passwdIngresado.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           icon: Icons.email_outlined,
                           hint: 'Ingrese su correo',
                           width: screenW,
+                          controller: emailIngresado,
                         ),
                         const SizedBox(height: 16),
                         _buildInput(
@@ -105,6 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           hint: 'Ingrese su contraseña',
                           width: screenW,
                           obscure: true,
+                          controller: passwdIngresado,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -180,12 +192,86 @@ class _MyHomePageState extends State<MyHomePage> {
                             height: screenW * 0.13,
                             child: ElevatedButton(
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const MenuPrincipal(),
-                                  ),
-                                );
+                                String email = emailIngresado.text.trim();
+                                String passwd = passwdIngresado.text.trim();
+
+                                Usuario? usuarioEncontrado = usuariosRegistrados
+                                    .cast<Usuario?>()
+                                    .firstWhere(
+                                      (u) =>
+                                          u!.emailUsu == email &&
+                                          u.passwdUsu == passwd,
+                                      orElse: () => null,
+                                    );
+
+                                if (email.isEmpty) {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: const Text('Error'),
+                                        content: const Text(
+                                          'Debe ingresar un Correo',
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () =>
+                                                Navigator.of(context).pop(),
+                                            child: const Text('Aceptar'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                } else if (passwd.isEmpty) {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: const Text('Error'),
+                                        content: const Text(
+                                          'Debe ingresar una Contraseña',
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () =>
+                                                Navigator.of(context).pop(),
+                                            child: const Text('Aceptar'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                } else if (usuarioEncontrado == null) {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: const Text('Error'),
+                                        content: const Text(
+                                          'Correo y/o contraseña incorrectos',
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () =>
+                                                Navigator.of(context).pop(),
+                                            child: const Text('Aceptar'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                } else {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MenuPrincipal(),
+                                    ),
+                                  );
+                                  emailIngresado.clear();
+                                  passwdIngresado.clear();
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF4b626e),
@@ -218,10 +304,12 @@ class _MyHomePageState extends State<MyHomePage> {
     required String hint,
     required double width,
     bool obscure = false,
+    TextEditingController? controller,
   }) {
     return SizedBox(
       width: width * 0.8,
       child: TextField(
+        controller: controller,
         obscureText: obscure,
         cursorColor: Colors.blue,
         decoration: InputDecoration(
