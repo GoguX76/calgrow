@@ -211,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       return AlertDialog(
                                         title: const Text('Error'),
                                         content: const Text(
-                                          'Debe ingresar un Correo',
+                                          'Debe ingresar un correo',
                                         ),
                                         actions: [
                                           TextButton(
@@ -230,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       return AlertDialog(
                                         title: const Text('Error'),
                                         content: const Text(
-                                          'Debe ingresar una Contraseña',
+                                          'Debe ingresar una contraseña',
                                         ),
                                         actions: [
                                           TextButton(

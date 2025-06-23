@@ -79,7 +79,7 @@ class _RegistrarState extends State<Registrar> {
                         SizedBox(
                           height: screenW * 0.02,
                         ), // espacio para el icono interno
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 0),
                         _buildInput(
                           icon: Icons.person_add,
                           width: 180,
@@ -100,27 +100,44 @@ class _RegistrarState extends State<Registrar> {
                           hint: 'Ingrese su número de teléfono',
                           controller: phoneController,
                         ),
-                        const SizedBox(height: 16),
-                        _buildInput(
-                          icon: Icons.lock_outline,
-                          hint: 'Ingrese su contraseña',
-                          width: screenW,
-                          obscure: !verPasswd,
-                          controller: passwdController,
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              verPasswd
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
+                        const SizedBox(height: 14),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildInput(
+                              icon: Icons.lock_outline,
+                              hint: 'Ingrese su nueva contraseña',
+                              width: screenW,
+                              obscure: !verPasswd,
+                              controller: passwdController,
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  verPasswd
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    verPasswd = !verPasswd;
+                                  });
+                                },
+                              ),
                             ),
-                            onPressed: () {
-                              setState(() {
-                                verPasswd = !verPasswd;
-                              });
-                            },
-                          ),
+                            const SizedBox(height: 4),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 12.0),
+                              child: Text(
+                                'La contraseña debe tener entre 4 y 14 carácteres.',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 14),
                         _buildInput(
                           icon: Icons.lock_outline,
                           hint: 'Vuelva a ingresar su contraseña',
