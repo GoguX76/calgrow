@@ -58,11 +58,11 @@ class _RegistrarState extends State<Registrar> {
               ),
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.22,
+              top: MediaQuery.of(context).size.height * 0.18,
               left: screenW * 0.05,
               child: Container(
                 width: screenW * 0.9,
-                height: MediaQuery.of(context).size.height * 0.65,
+                height: MediaQuery.of(context).size.height * 0.70,
                 decoration: BoxDecoration(
                   color: const Color(0xFFD9D9D9),
                   borderRadius: BorderRadius.circular(19),

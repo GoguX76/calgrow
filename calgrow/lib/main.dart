@@ -52,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Stack(
           children: [
-            // Fondo y desenfoque fijo
             SizedBox.expand(
               child: Image.asset(
                 'assets/CalGrow-background.png',
