@@ -1,0 +1,1 @@
+Este README es para usted, profesor. Los requerimientos funcionales y no funcionales están tanto dentro del informe como de la plantilla que nos dio de ejemplo para esta evaluación. También, en el informe está presente la metodología usada. La demás información tiene sus nombres respectivos, y sino, están dentro de otros archivos.
